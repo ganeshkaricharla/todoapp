@@ -1,0 +1,40 @@
+<%- include('header') -%>
+
+
+    <div class="content">
+
+        <div class="container">
+            <div class="row">
+            <div class="col-md-12">
+            <div class="card card-white">
+            <div class="card-body">
+            <form action="/" method="post">
+            <input type="text" name="inputTask" class="form-control add-task" placeholder="New Task...">
+            </form>
+                            
+            <div class="todo-list">
+                <%todoTasks.forEach(function(todoTask){%>
+                    <div class="todo-item">
+                        <div class="checker">
+                            <span class="">
+                                <form action="/delete" method="post">
+                                    <input type="checkbox" name="checkbox" value ="<%= todoTask._id %>" onchange="this.form.submit()">
+                                </form>
+                                
+                            </span>
+                        </div>
+                        <% console.log(todoTasks) %>
+                        <span><%= todoTask.name %></span>
+                    </div>
+                <%})%>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <%- include('footer') -%>
